@@ -49,11 +49,13 @@ public class PriceComparisonTest {
         driver.get("https://supsystic.com/example/comparison-example/");
 
         // Get and print price to console for Samsung Galaxy S6
-        String price = driver.findElement(By.xpath("//span[contains(text(),'$959.00')]")).getAttribute("innerHTML");
+        String price = driver.findElement(By.xpath("//span[.='Samsung Galaxy S6']/ancestor::div[contains(@class, 'ptsElWithArea')]//div[@class='ptsCell']//span[contains(., '$')]")).getAttribute("textContent");
+        // Or //div[contains(@class,'ptsCol-2')]//div[contains(@class,'ptsRows')]/div[last()]//span
         System.out.println("Price for Samsung Galaxy S6 = " + price);
 
+
         // Get and print price without discount to console for Samsung Galaxy S6
-        String priceWithoutDiscount = driver.findElement(By.xpath("//span[contains(text(),'$2699')]")).getAttribute("innerHTML");
+        String priceWithoutDiscount = driver.findElement(By.xpath("//div[@data-el='table_col'][3]/descendant::div[@class='ptsColFooter']/div/p/span")).getAttribute("innerHTML");
         System.out.println("Price without discount for Samsung Galaxy S6 = " + priceWithoutDiscount);
 
         // Calculate and print difference between prices to console for Samsung Galaxy S6
