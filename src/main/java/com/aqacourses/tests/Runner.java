@@ -23,7 +23,6 @@ public class Runner {
 
         }
 
-
         // Run SymbolSearch test
         Result resultOfSymbolSearchTest = JUnitCore.runClasses(SymbolSearchTest.class);
 
